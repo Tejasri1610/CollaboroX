@@ -24,7 +24,7 @@ const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Projects', href: '/projects', icon: FolderKanban },
   { name: 'Notifications', href: '/notifications', icon: Bell, badge: 3 },
-  { name: 'AI Assistant', href: '/chatbot', icon: Bot },
+  { name: 'AI Assistant', href: '/SynergyAI', icon: Bot },
   { name: 'Profile', href: '/profile', icon: User },
 ];
 
