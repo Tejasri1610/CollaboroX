@@ -454,8 +454,8 @@ export default function Projects() {
         
         // Fetch both projects and users
         const [projectsResponse, usersResponse] = await Promise.all([
-          fetch('http://collaboro-backend.vercel.app/projects/allprojects'),
-          fetch('http://collaboro-backend.vercel.app/projects/allusers')
+          fetch('https://collaboro-backend.vercel.app/projects/allprojects'),
+          fetch('https://collaboro-backend.vercel.app/projects/allusers')
         ]);
 
         if (!projectsResponse.ok || !usersResponse.ok) {
