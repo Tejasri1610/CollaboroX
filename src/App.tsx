@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Tasks from "./pages/Tasks";
 import ForgotPassword from "./pages/Forgot";
 import Cookies from "js-cookie";
+import SynergyAI from "./pages/SynergyAI";
 const queryClient = new QueryClient();
 
 // Mock auth check - replace with real auth logic
@@ -66,6 +67,7 @@ const App = () => (
             <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="SynergyAI" element={<SynergyAI />} />
             <Route path="projects/:projectId" element={<ProjectDetail />} />
             <Route path="/projects/:projectId/tasks" element={<Tasks />} />
             <Route path="notifications" element={<Notifications />} />
