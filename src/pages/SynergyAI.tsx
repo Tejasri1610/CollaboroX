@@ -42,8 +42,8 @@ const SynergyAI: React.FC = () => {
     const loadData = async () => {
       try {
         const [usersRes, projectsRes] = await Promise.all([
-          fetch('http://localhost:3000/projects/allusers'),
-          fetch('http://localhost:3000/projects/allprojects')
+          fetch('https://collaboro-backend.vercel.app/projects/allusers'),
+          fetch('https://collaboro-backend.vercel.app/projects/allprojects')
         ]);
         
         const usersData = await usersRes.json();
