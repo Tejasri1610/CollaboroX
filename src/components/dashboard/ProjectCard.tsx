@@ -207,7 +207,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       transition={{ duration: 0.2 }}
       whileHover={{ y: -4 }}
       className="h-full"
-      onClick={() => navigate(`/projects/${project.id}/tasks`)}
+      onClick={() => navigate(`/projects/${project.id}`)}
     >
       <Card className="p-6 h-full hover-lift bg-gradient-surface border border-border/50 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer">
         {/* Header */}
