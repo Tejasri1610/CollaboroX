@@ -467,6 +467,9 @@ export default function Projects() {
     
     return matchesSearch && matchesStatus && matchesPriority;
   });
+  
+
+
 
   // Sort projects
   const sortedProjects = [...filteredProjects].sort((a, b) => {
@@ -482,6 +485,8 @@ export default function Projects() {
         return 0; // Keep original order for recent
     }
   });
+
+
 
   return (
     <div className="p-6 space-y-6">

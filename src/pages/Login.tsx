@@ -62,6 +62,12 @@ export default function Login() {
 
   const isFormValid = formData.email.includes("@") && formData.password.length >= 6;
 
+const handleForgotPassword = () => {
+  // Use js-cookie for consistency
+  Cookies.set("forgotPassword", "true", { expires: 1/24 }); // 1 hour
+  navigate("/forgot"); // Ensure /forgot route exists
+};
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-subtle">
       <Navbar />
@@ -144,7 +150,9 @@ export default function Login() {
 
                 {/* Forgot password */}
                 <div className="flex justify-end">
-                  <Button variant="link" className="p-0 h-auto text-sm">
+                  <Button 
+                  onClick={handleForgotPassword}
+                  variant="link" className="p-0 h-auto text-sm">
                     Forgot password?
                   </Button>
                 </div>
