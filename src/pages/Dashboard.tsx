@@ -167,10 +167,10 @@ export default function Dashboard() {
               <Plus className="h-5 w-5 mr-2" />
               New Project
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+            {/* <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
               <Target className="h-5 w-5 mr-2" />
               View Goals
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div className="absolute right-0 top-0 h-full w-1/3 opacity-20">
