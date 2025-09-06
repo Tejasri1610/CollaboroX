@@ -130,38 +130,41 @@ export function CreateTaskModal({ open, onOpenChange, onSubmit, projectId, proje
               </div>
             </div>
 
-            {/* Assignee */}
-            <FormField
-              control={form.control}
-              name="assignee"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="flex items-center space-x-2">
-                    <User className="h-4 w-4" />
-                    <span>Assignee (Optional)</span>
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder="Select assignee" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="">Unassigned</SelectItem>
-                      {teamMembers.map((member) => (
-                        <SelectItem key={member.id} value={member.id}>
-                          <div className="flex items-center space-x-2">
-                            <span className="font-medium">{member.name}</span>
-                            <span className="text-sm text-muted-foreground">({member.role})</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          {/* Assignee */}
+<FormField
+  control={form.control}
+  name="assignee"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel className="flex items-center space-x-2">
+        <User className="h-4 w-4" />
+        <span>Assignee (Optional)</span>
+      </FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value || "unassigned"}>
+        <FormControl>
+          <SelectTrigger className="h-12">
+            <SelectValue placeholder="Select assignee" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          <SelectItem value="unassigned">Unassigned</SelectItem> {/* ✅ valid value */}
+          {teamMembers.map((member) => (
+            <SelectItem key={member.id} value={member.id}>
+              <div className="flex items-center space-x-2">
+                <span className="font-medium">{member.name}</span>
+                <span className="text-sm text-muted-foreground">
+                  ({member.role})
+                </span>
+              </div>
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+
 
             {/* Deadline */}
             <FormField
