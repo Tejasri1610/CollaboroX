@@ -15,12 +15,14 @@ import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import Tasks from "./pages/Tasks";
 import ForgotPassword from "./pages/Forgot";
-
+import Cookies from "js-cookie";
 const queryClient = new QueryClient();
 
 // Mock auth check - replace with real auth logic
 const isAuthenticated = () => {
-  return localStorage.getItem('collaborox_token') !== null;
+  const tokenFromLocalStorage = localStorage.getItem("collaborox_token");
+  const tokenFromCookie = Cookies.get("collaborox_token");
+  return !!tokenFromLocalStorage || !!tokenFromCookie;
 };
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -30,6 +32,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const AuthRoute = ({ children }: { children: React.ReactNode }) => {
   return !isAuthenticated() ? <>{children}</> : <Navigate to="/dashboard" replace />;
 };
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

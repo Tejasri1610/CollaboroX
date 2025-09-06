@@ -42,13 +42,13 @@ export default function Login() {
       );
 
       const data = await response.json();
-
+console.log(data);
       if (response.ok && data.token) {
         // Store token & user in cookies
         Cookies.set("collaborox_token", data.token, { expires: 7, sameSite: "lax" });
         Cookies.set("collaborox_user", JSON.stringify(data.user), { expires: 7, sameSite: "lax" });
 
-        navigate("/dashboard");
+      window.location.href = "/dashboard";
       } else {
         setError(data.message || "Login failed. Please check your credentials.");
       }
@@ -63,9 +63,8 @@ export default function Login() {
   const isFormValid = formData.email.includes("@") && formData.password.length >= 6;
 
 const handleForgotPassword = () => {
-  // Use js-cookie for consistency
-  Cookies.set("forgotPassword", "true", { expires: 1/24 }); // 1 hour
-  navigate("/forgot"); // Ensure /forgot route exists
+  Cookies.set("forgotPassword", "true", { expires: 1/24 }); 
+  navigate("/forgot"); 
 };
 
   return (
@@ -81,7 +80,7 @@ const handleForgotPassword = () => {
           >
             <Card className="p-8 bg-gradient-surface border border-border/50 shadow-xl">
               <h2 className="text-2xl font-bold text-center mb-2">
-                Login to your account test
+                Login to your account
               </h2>
               <p className="text-sm text-muted-foreground text-center mb-6">
                 Or{" "}
