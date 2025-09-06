@@ -95,7 +95,7 @@ export default function ProjectDetail() {
     status: 'active',
     createdAt: 'November 1, 2024'
   };
-
+// this is a page
   const handleCreateTask = (taskData: any) => {
     const newTask: Task = {
       id: Date.now().toString(),
